@@ -502,10 +502,10 @@
         var currentUser = localStorage.getItem("currentUser");
         if (currentUser) {
             document.getElementById("user").innerText = currentUser;
-            loadCalorieGoal(); // Load calorie goal when user is displayed
+            loadCalorieGoal(); 
         } else {
             alert("No user logged in!");
-            window.location.href = "login.html"; // Redirect to login page
+            window.location.href = "login.html"; 
         }
     }
 
@@ -514,23 +514,23 @@
         var currentUser = localStorage.getItem("currentUser");
         var users = JSON.parse(localStorage.getItem("users") || "[]");
     
-        // Find the current user and update their calorie goal and date
+        
         users.forEach(user => {
             if (user.username === currentUser) {
-                user.calorieGoal = calorieGoal; // Update calorie goal for this user
-                user.lastInputDate = new Date().toISOString().split('T')[0]; // Save current date as last input date
+                user.calorieGoal = calorieGoal; 
+                user.lastInputDate = new Date().toISOString().split('T')[0]; 
             }
         });
     
-        localStorage.setItem("users", JSON.stringify(users)); // Save updated users array
-        document.getElementById("goalDisplay").innerText = calorieGoal; // Update displayed goal
+        localStorage.setItem("users", JSON.stringify(users)); 
+        document.getElementById("goalDisplay").innerText = calorieGoal; 
         alert("Calorie goal saved!");
     
-        // Hide the input field and button after saving
+        
         document.getElementById("calorieGoal").style.display = "none";
         document.getElementById("saveGoalButton").style.display = "none";
     
-        // Start the countdown timer for the next reset
+        
         startCountdownTimer();
     }
     
@@ -541,17 +541,17 @@
     
         if (user) {
             document.getElementById("goalDisplay").innerText = user.calorieGoal !== null ? user.calorieGoal : "Not set";
-            document.getElementById("calorieGoal").value = user.calorieGoal !== null ? user.calorieGoal : ""; // Pre-fill the input with the current goal
+            document.getElementById("calorieGoal").value = user.calorieGoal !== null ? user.calorieGoal : ""; 
     
-            // Check if the user can input a new calorie goal
-            var today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+            
+            var today = new Date().toISOString().split('T')[0]; 
             if (user.calorieGoal !== null && user.lastInputDate === today) {
-                document.getElementById("saveGoalButton").disabled = true; // Disable the button
+                document.getElementById("saveGoalButton").disabled = true; 
                 document.getElementById("calorieGoalSet").style.display = 'none';
-                // Start the countdown timer for the next reset
+                
                 startCountdownTimer();
             } else {
-                document.getElementById("saveGoalButton").disabled = false; // Enable the button if no goal is set yet
+                document.getElementById("saveGoalButton").disabled = false; 
             }
         } else {
             document.getElementById("goalDisplay").innerText = "Not set";
@@ -560,20 +560,20 @@
 
     function logout() {
         localStorage.removeItem("currentUser");
-        window.location.href = "login.html"; // Redirect to login page
+        window.location.href = "login.html"; 
     }
 
     function startCountdownTimer() {
-        // Set the target time to midnight Central Standard Time
+        
         var now = new Date();
         var targetTime = new Date();
-        targetTime.setHours(0, 0, 0, 0); // Set to midnight
-        targetTime.setDate(targetTime.getDate() + 1); // Move to the next day
+        targetTime.setHours(0, 0, 0, 0); 
+        targetTime.setDate(targetTime.getDate() + 1); 
     
-        // Calculate the time difference
+        
         var timeDifference = targetTime - now;
     
-        // Update the timer every second
+        
         var timerElement = document.getElementById("timer");
         var inputField = document.getElementById("calorieGoal");
         var saveButton = document.getElementById("saveGoalButton");
@@ -581,20 +581,20 @@
         var countdown = setInterval(function() {
             timeDifference -= 1000; // Decrease by one second
     
-            // Calculate hours, minutes, and seconds
+            
             var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
     
-            // Display the timer
+            
             timerElement.innerText = "New Goal In: " + hours + "h " + minutes + "m " + seconds + "s";
     
-            // Reset the timer when it reaches zero
+            
             if (timeDifference < 0) {
-                clearInterval(countdown); // Stop the timer
-                timerElement.innerText = "You can now set a new calorie goal!"; // Notify user
+                clearInterval(countdown); 
+                timerElement.innerText = "You can now set a new calorie goal!"; 
     
-                // Show the input field and button again
+                
                 inputField.style.display = "block";
                 saveButton.style.display = "block";
             }
@@ -604,20 +604,20 @@
 
     const radioButtons = document.querySelectorAll('input[name="position"]');
 
-// Function to update the carousel based on selected radio button
+
 function updateCarousel(position) {
     const carousel = document.querySelector('main#carousel');
-    // Set the CSS variable for carousel positioning
+    
     carousel.style.setProperty('--position', position);
 }
 
-// Add an event listener to each radio button
+
 radioButtons.forEach((radio) => {
     radio.addEventListener('change', (event) => {
         // Get the selected radio button value
         const position = event.target.value;
 
-        // Update the carousel position
+        
         updateCarousel(position);
     });
 });
@@ -632,19 +632,19 @@ radioButtons.forEach((radio) => {
         var selectedCaloriesCorner17 = document.getElementById("corner17Items").value;
         var selectedCaloriesBDVillageGrill = document.getElementById("bdVillageGrillItems").value; // Get value from BD/Village Grill dropdown
     
-        // Select from any dropdown
+        
         var selectedCalories = selectedCaloriesBBQ || selectedCaloriesCollins || selectedCaloriesCoffeestamp || selectedCaloriesSubway || selectedCaloriesStanleys || selectedCaloriesCorner17 || selectedCaloriesBDVillageGrill;
         
         if (selectedCalories === "") {
-            return; // Do nothing if no item is selected
+            return; 
         }
     
         var currentGoal = document.getElementById("goalDisplay").innerText;
     
-        // Convert current goal to a number
+        
         var newGoal = Number(currentGoal) - Number(selectedCalories);
     
-        // Update the calorie goal display
+        
         if (newGoal >= 0) {
             document.getElementById("goalDisplay").innerText = newGoal;
 
@@ -654,26 +654,26 @@ radioButtons.forEach((radio) => {
             var user = users.find(user => user.username === currentUser);
 
             if (user) {
-                user.calorieGoal = newGoal; // Update the calorie goal for this user
-                localStorage.setItem("users", JSON.stringify(users)); // Save updated users array
+                user.calorieGoal = newGoal; 
+                localStorage.setItem("users", JSON.stringify(users)); 
             }
         } else {
             alert("Not enough calories in your goal to deduct this item.");
         }
     
-        // Clear selections from all dropdowns
+        
         document.getElementById("bbqItems").selectedIndex = 0;
         document.getElementById("collinsFarmsItems").selectedIndex = 0;
-        document.getElementById("coffeestampItems").selectedIndex = 0; // Clear Coffeestamp dropdown
-        document.getElementById("subwayItems").selectedIndex = 0; // Clear Subway dropdown
-        document.getElementById("stanleysItems").selectedIndex = 0; // Clear Stanley's dropdown
-        document.getElementById("corner17Items").selectedIndex = 0; // Clear Corner 17 dropdown
-        document.getElementById("bdVillageGrillItems").selectedIndex = 0; // Clear BD/Village Grill dropdown
+        document.getElementById("coffeestampItems").selectedIndex = 0; 
+        document.getElementById("subwayItems").selectedIndex = 0; 
+        document.getElementById("stanleysItems").selectedIndex = 0; 
+        document.getElementById("corner17Items").selectedIndex = 0; 
+        document.getElementById("bdVillageGrillItems").selectedIndex = 0; 
 
     }
     
 
-    displayUser(); // Call this function on page load
+    displayUser(); 
 </script>
 
 </body>
