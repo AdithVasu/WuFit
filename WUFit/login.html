@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        
+        input[type="text"], input[type="password"] {
+            width: 100%; padding: 10px ; margin: 10px -10px; border-radius: 5px;
+        }
+        button { width: 100%; padding: 10px; background-color: blue; color: white; border: none; border-radius: 5px; }
+    </style>
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+
+<h1 id="title-text">WUFIT</h1>
+
+<div class="container">
+    <h2 id="login-title">Login</h2>
+    <div class="input-group">
+        <input type="text" id="loginUsername" placeholder="Username" required>
+    </div>
+    <div class="input-group">
+        <input type="password" id="loginPassword" placeholder="Password" required>
+    </div>
+    
+    <button onclick="login()">Login</button>
+    <a href='signup.html'>Sign Up Here</a>
+</div>
+
+<script>
+    function login() {
+        var username = document.getElementById("loginUsername").value;
+        var password = document.getElementById("loginPassword").value;
+
+        var users = JSON.parse(localStorage.getItem("users") || "[]");
+        var user = users.find(function(user) {
+            return user.username === username && user.password === password;
+        });
+
+        if (user) {
+            localStorage.setItem("currentUser", username); // Store current user
+            window.location.href = "home.html"; // Redirect to home page
+        } else {
+            alert("Invalid username or password!");
+        }
+    }
+
+</script>
+
+<section class="wrapper">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+
+    
+</section>
+
+    
+
+</body>
+</html>

@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { width: 300px; margin: 50px auto; text-align: center; }
+        
+        
+        #timer { font-size: 1.2em; color: rgb(0, 0, 0); }
+    </style>
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    
+    <section class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    
+        
+    </section> 
+
+   
+
+    <div class="container2">
+    <h1 id="userInfo">Welcome, <span id="user"></span>!</h1>
+
+    <div class="bodyCube">
+        <div class="cube">
+            <div class="frontCube">
+                <h4 id="calorieGoal2">Your Calorie Goal: <span id="goalDisplay"></span></h4>
+            </div>
+            <div class="backCube">
+                <div id="timer"></div>
+            </div>
+            <div class="leftCube"></div>
+            <div class="rightCube"></div>
+            <div class="topCube"></div>
+            <div class="bottomCube"></div>
+        </div>
+        <div class="shadow"></div>
+    </div>
+
+    
+    <div id="calorieGoalSet">
+    <h3>Set Your Calorie Goal</h3>
+    <input type="number" id="calorieGoal" placeholder="Enter your calorie goal">
+    <button id="saveGoalButton" onclick="saveCalorieGoal()">Save Goal</button>
+    
+    <br>
+
+    </div>
+
+    <button id="logoutButton" onclick="logout()">Logout</button>
+
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    
+    <div class="radio-wrapper">
+    <input class="radiobuttonTop" type="radio" name="position" value="1" checked/>
+    <input class="radiobuttonTop" type="radio" name="position" value="2"/>
+    <input class="radiobuttonTop" type="radio" name="position" value="3"/>
+    <input class="radiobuttonTop" type="radio" name="position" value="4"/>
+    <input class="radiobuttonTop" type="radio" name="position" value="5"/>
+    <input class="radiobuttonTop" type="radio" name="position" value="6"/>
+    <input class="radiobuttonTop" type="radio" name="position" value="7"/>
+    </div>
+
+    <main id="carousel">
+      <div class="item">
+        <img src="BeastCraftBBQ.png">
+        <h3 class="name">BeastCraft BBQ</h3>
+
+        <br>
+       
+        <select id="bbqItems" onchange="deductCalories()">
+            <option value="">Select an item</option>
+            <option value="800">American Burger - 800 calories</option>
+            <option value="900">BBQ Burger - 900 calories</option>
+            <option value="950">Brisket Grilled Cheese - 950 calories</option>
+            <option value="475">1/2 Brisket Grilled Cheese - 475 calories</option>
+            <option value="525">Grilled Cheese - 525 calories</option>
+            <option value="250">1/2 Grilled Cheese - 250 calories</option>
+            <option value="250">Harvest Slider - 250 calories</option>
+            <option value="600">Harvest Sandwich - 600 calories</option>
+            <option value="700">Harvest Lunch Plate - 700 calories</option>
+            <option value="350">Pork Slider - 350 calories</option>
+            <option value="700">Pork Sandwich - 700 calories</option>
+            <option value="800">Pork Lunch Plate - 800 calories</option>
+            <option value="300">Turkey Slider - 300 calories</option>
+            <option value="600">Turkey Sandwich - 600 calories</option>
+            <option value="700">Turkey Lunch Plate - 700 calories</option>
+            <option value="900">Turkey Dinner Plate - 900 calories</option>
+            <option value="400">Brisket Slider - 400 calories</option>
+            <option value="700">Brisket Sandwich - 700 calories</option>
+            <option value="900">Brisket Lunch Plate - 900 calories</option>
+            <option value="475">Pork Steak Slider - 475 calories</option>
+            <option value="750">Pork Steak Sandwich - 750 calories</option>
+            <option value="800">Pork Steak Lunch Plate - 800 calories</option>
+            <option value="600">Jumbo Wings - 600 calories</option>
+            <option value="300">1/2 Jumbo Wings - 300 calories</option>
+            <option value="700">Rib Tips - 700 calories</option>
+            <option value="950">Porksteak Mac Bowl - 950 calories</option>
+            <option value="1050">Brisket Mac Bowl - 1050 calories</option>
+            <option value="400">Ceasar Salad - 400 calories</option>
+            <option value="300">House Salad - 300 calories</option>
+            <option value="200">Billy Goat Chips - 200 calories</option>
+            <option value="200">Candied Bacon - 200 calories</option>
+            <option value="500">Fries w/ fry sauce - 500 calories</option>
+            <option value="250">Potato Salad - 250 calories</option>
+            <option value="300">Sprouts w/ Pork Belly - 300 calories</option>
+            <option value="600">White Cheddar Mac - 600 calories</option>
+            <option value="250">Chocolate Chunk Cookie - 250 calories</option>
+            <option value="250">Salted Caramel Cookie - 250 calories</option>
+        </select>
+      </div>
+      <div class="item">
+        <img src="BistroGrill.png">
+        <h3 class="name">BD/Village Grill</h3>
+
+        <br>
+        
+        <select id="bdVillageGrillItems" onchange="deductCalories()">
+            <option value="">Select an item</option>
+            <option value="1200">BYO Bistro Burger - 1200 calories</option>
+            <option value="1100">BYO Grilled Chicken Sandwich - 1100 calories</option>
+            <option value="800">Impossible Burger - 800 calories</option>
+            <option value="1100">Philly Cheesesteak - 1100 calories</option>
+            <option value="800">Black Bean Burger - 800 calories</option>
+            <option value="600">Grilled Cheese - 600 calories</option>
+            <option value="450">Fries Egg Sandwich - 450 calories</option>
+            <option value="750">Turkey Burger - 750 calories</option>
+            <option value="1200">Half and Half - 1200 calories</option>
+            <option value="700">Chicken Tenders - 700 calories</option>
+            <option value="650">All Beef Hot Dog - 650 calories</option>
+            <option value="500">Chicken Breast - 500 calories</option>
+            <option value="580">NY Strip - 580 calories</option>
+            <option value="800">Ribeye - 800 calories</option>
+            <option value="750">Pork Chop - 750 calories</option>
+            <option value="780">Pork Steak - 780 calories</option>
+            <option value="450">Salmon Filet - 450 calories</option>
+            <option value="870">Double Lamb Chop - 870 calories</option>
+            <option value="450">Bratwurst - 450 calories</option>
+            <option value="600">French Fries - 600 calories</option>
+            <option value="450">Tater Tots - 450 calories</option>
+            <option value="350">Sweet Potato Fries - 350 calories</option>
+            <option value="500">Mac and Cheese - 500 calories</option>
+            <option value="430">Sautéed Zucchini - 430 calories</option>
+        </select>
+      </div>
+      <div class="item">
+        <img src="CoffeeStamp.png">
+        <h3 class="name">CoffeeStamp</h3>
+
+        <br>
+        
+        <select id="coffeestampItems" onchange="deductCalories()">
+            <option value="">Select an item</option>
+            <option value="10">Americano - 10 calories</option>
+            <option value="130">Cafe au lait - 130 calories</option>
+            <option value="80">Cappuccino - 80 calories</option>
+            <option value="200">Chai Latte - 200 calories</option>
+            <option value="240">Dirty Chai Latte - 240 calories</option>
+            <option value="2">Drip Coffee - 2 calories</option>
+            <option value="10">Espresso DBL Shot - 10 calories</option>
+            <option value="320">Hot Chocolate - 320 calories</option>
+            <option value="190">Latte - 190 calories</option>
+            <option value="150">London Fog - 150 calories</option>
+            <option value="2">Loose Leaf Tea - 2 calories</option>
+            <option value="240">Matcha Latte - 240 calories</option>
+            <option value="400">Mocha - 400 calories</option>
+            <option value="500">Burrito A.M. - 500 calories</option>
+            <option value="400">Chicken Panini - 400 calories</option>
+            <option value="500">Cubano - 500 calories</option>
+            <option value="525">Grilled Cheese - 525 calories</option>
+        </select>
+      </div>
+      <div class="item">
+        <img src="CollinsFarms.png">
+        <h3 class="name">CollinsFarms</h3>
+
+        <br>
+       
+        <select id="collinsFarmsItems" onchange="deductCalories()">
+            <option value="">Select an item</option>
+            <option value="340">BBQ Chicken Salad - 340 calories</option>
+            <option value="150">Summer Salad - 150 calories</option>
+            <option value="300">Hummus Salad - 300 calories</option>
+            <option value="200">Greek Salad - 200 calories</option>
+            <option value="120">The House Salad - 120 calories</option>
+            <option value="400">Buffalo Chicken Salad - 400 calories</option>
+            <option value="300">Caesar Salad - 300 calories</option>
+            <option value="400">Cobb Salad - 400 calories</option>
+            <option value="100">Simple Salad - 100 calories</option>
+            <option value="200">Mandarin Orange Salad - 200 calories</option>
+            <option value="350">Strawberry Shortcake Smoothie - 350 calories</option>
+            <option value="200">Green Smoothie - 200 calories</option>
+            <option value="500">Buffalo Chicken Panini - 500 calories</option>
+            <option value="450">Barbeque Chicken Panini - 450 calories</option>
+            <option value="500">Chipotle Chicken Panini - 500 calories</option>
+            <option value="400">Tomato Basil Panini - 400 calories</option>
+        </select>
+      </div>
+      <div class="item">
+        <img src="Corner17.png">
+        <h3 class="name">Corner 17</h3>
+        
+        <br>
+<select id="corner17Items" onchange="deductCalories()">
+    <option value="">Select an item</option>
+    <option value="1000">Kung Pau Chicken - 1000 calories</option>
+    <option value="1200">General Tso Chicken - 1200 calories</option>
+    <option value="900">Black Pepper Chicken - 900 calories</option>
+    <option value="1100">Chicken Low Mein - 1100 calories</option>
+    <option value="800">Pork Dumplings - 800 calories</option>
+    <option value="650">Fried Rice - 650 calories</option>
+    <option value="600">Potstickers - 600 calories</option>
+    <option value="450">Milk Boba Tea - 450 calories</option>
+    <option value="350">Fresh Fruit Tea - 350 calories</option>
+    <option value="400">Slushes - 400 calories</option>
+    <option value="300">Cheese Tea - 300 calories</option>
+    <option value="400">Flavored Tea - 400 calories</option>
+    <option value="450">Fresh Fruit Tea - 450 calories</option>
+    <option value="500">Cheesecake - 500 calories</option>
+    <option value="320">Cinnamon Scone - 320 calories</option>
+    <option value="220">Chocolate Chip Cookie - 220 calories</option>
+    <option value="250">Blueberry Scone - 250 calories</option>
+    <option value="200">Oatmeal Cranberry Cookie - 200 calories</option>
+</select>
+      </div>
+      <div class="item">
+        <img src="Subway.png">
+        <h3 class="name">Subway</h3>
+
+        <br>
+       
+        <select id="subwayItems" onchange="deductCalories()">
+            <option value="">Select an item</option>
+            <option value="410">6 Inch BLT - 410 calories</option>
+            <option value="230">6 Inch Veggie Delite - 230 calories</option>
+            <option value="350">6 Inch Rotisserie Chicken - 350 calories</option>
+            <option value="310">6 Inch Subway Club - 310 calories</option>
+            <option value="330">6 Inch Roast Beef - 330 calories</option>
+            <option value="320">6 Inch Turkey Italiano - 320 calories</option>
+            <option value="450">6 Inch Pizza Sub - 450 calories</option>
+            <option value="820">12 Inch BLT - 820 calories</option>
+            <option value="260">12 Inch Veggie Delite - 260 calories</option>
+            <option value="700">12 Inch Rotisserie Chicken - 700 calories</option>
+            <option value="620">12 Inch Subway Club - 620 calories</option>
+            <option value="660">12 Inch Roast Beef - 660 calories</option>
+            <option value="640">12 Inch Turkey Italiano - 640 calories</option>
+            <option value="900">12 Inch Pizza Sub - 900 calories</option>
+            <option value="480">6 Inch Tuna - 480 calories</option>
+            <option value="480">6 Inch Meatball Marinara - 480 calories</option>
+            <option value="480">6 Inch Chicken Bacon Ranch Melt - 480 calories</option>
+            <option value="960">12 Inch Tuna - 960 calories</option>
+            <option value="960">12 Inch Meatball Marinara - 960 calories</option>
+            <option value="960">12 Inch Chicken Bacon Ranch Melt - 960 calories</option>
+            <option value="800">Cheese Pizza - 800 calories</option>
+            <option value="900">Pepperoni Pizza - 900 calories</option>
+            <option value="200">Chocolate Chip Cookie - 200 calories</option>
+            <option value="200">Oatmeal Raisin Cookie - 200 calories</option>
+            <option value="200">Macadamia Nut Cookie - 200 calories</option>
+        </select>
+      </div>
+      <div class="item">
+        <img src="Stanleys.png">
+        <h3 class="name">Stanley's Sushi</h3>
+
+        <br>
+        
+<select id="stanleysItems" onchange="deductCalories()">
+    <option value="">Select an item</option>
+    <option value="225">Vegetable Roll - 225 calories</option>
+    <option value="375">Aloha Roll - 375 calories</option>
+    <option value="450">Dragon Roll - 450 calories</option>
+    <option value="325">Spicy Salmon Roll - 325 calories</option>
+    <option value="320">Spicy Tuna Roll - 320 calories</option>
+    <option value="350">Philly Roll - 350 calories</option>
+    <option value="375">Cali Crunch Roll - 375 calories</option>
+    <option value="325">Classic Shrimp Roll - 325 calories</option>
+    <option value="425">Dynamite Roll - 425 calories</option>
+    <option value="350">Tempura Shrimp - 350 calories</option>
+    <option value="750">Cali Crunch + Tiger Roll - 750 calories</option>
+    <option value="775">Cali Crunch + Tempura Roll - 775 calories</option>
+    <option value="850">Dragon Roll + Tempura Roll - 850 calories</option>
+    <option value="275">California Roll - 275 calories</option>
+    <option value="325">Spicy California Roll - 325 calories</option>
+    <option value="350">Shrimp Tempura Roll - 350 calories</option>
+    <option value="400">Tiger Roll - 400 calories</option>
+    <option value="225">Cucumber Avocado Roll - 225 calories</option>
+    <option value="275">Buddha Roll - 275 calories</option>
+    <option value="400">Nigiri Combo - 400 calories</option>
+    <option value="500">Rainbow Roll - 500 calories</option>
+    <option value="375">String Roll - 375 calories</option>
+    <option value="425">Sunny in Philly Roll - 425 calories</option>
+    <option value="450">Golden Roll - 450 calories</option>
+    <option value="225">Very Veggie Roll - 225 calories</option>
+    <option value="500">Steelhead Poke Bowl - 500 calories</option>
+    <option value="450">Shrimp Poke Bowl - 450 calories</option>
+    <option value="300">Black Tea with Boba - 300 calories</option>
+    <option value="350">Milk Tea with Boba - 350 calories</option>
+    <option value="250">Honey Green Tea with Boba - 250 calories</option>
+    <option value="350">Honey Green Milk Tea with Boba - 350 calories</option>
+    <option value="250">Mango Green Tea with Boba - 250 calories</option>
+    <option value="400">Honey Taro Milk Tea with Boba - 400 calories</option>
+    <option value="300">Honey Lavender Tea with Boba - 300 calories</option>
+</select>
+      </div>
+    </main>
+
+
+<!--
+
+<h3>Lajoy's Cafe</h3>
+<select id="lajoysCafeItems" onchange="deductCalories()">
+    <option value="">Select an item</option>
+    <option value="300">Amariyah Vanilla Caramel Latte - 300 calories</option>
+    <option value="15">Americano - 15 calories</option>
+    <option value="150">Cappuccino - 150 calories</option>
+    <option value="250">Caramel Macchiato Latte - 250 calories</option>
+    <option value="240">Chai Tea Latte - 240 calories</option>
+    <option value="5">Cold Brew - 5 calories</option>
+    <option value="280">Dirty Chai - 280 calories</option>
+    <option value="5">Drip Coffee - 5 calories</option>
+    <option value="5">Espresso DBL Shot - 5 calories</option>
+    <option value="250">Hot Chocolate - 250 calories</option>
+    <option value="0">Hot Tea - 0 calories</option>
+    <option value="190">Latte - 190 calories</option>
+    <option value="300">Mocha Latte - 300 calories</option>
+    <option value="350">Turtle Latte - 350 calories</option>
+    <option value="320">Tuxedo Latte - 320 calories</option>
+    <option value="350">White Chocolate Mocha Latte - 350 calories</option>
+    <option value="300">Pumpkin Latte - 300 calories</option>
+    <option value="250">Bagel - 250 calories</option>
+    <option value="400">Old Town XL Donuts - 400 calories</option>
+    <option value="350">Blueberry Muffin - 350 calories</option>
+    <option value="350">Blueberry Scone - 350 calories</option>
+    <option value="350">Cheese Danish - 350 calories</option>
+    <option value="400">Chocolate Chocolate Chip Muffin - 400 calories</option>
+    <option value="380">Vanilla Chocolate Chunk Muffin - 380 calories</option>
+    <option value="450">Bacon, Egg & Cheese Croissant - 450 calories</option>
+    <option value="400">Egg & Cheese Croissant - 400 calories</option>
+    <option value="450">Ham, Egg & Cheese Croissant - 450 calories</option>
+    <option value="500">Sausage, Egg & Cheese Croissant - 500 calories</option>
+    <option value="450">Turkey, Egg & Cheese - 450 calories</option>
+    <option value="500">BLT on Texas Toast - 500 calories</option>
+    <option value="600">Turkey Bacon Ranch on Asiago Bagel - 600 calories</option>
+    <option value="150">Oatmeal - 150 calories</option>
+    <option value="180">Mango Lemonade - 180 calories</option>
+    <option value="180">Strawberry Lemonade - 180 calories</option>
+    <option value="180">Peach Lemonade - 180 calories</option>
+    <option value="180">Lavender Lemonade - 180 calories</option>
+    <option value="200">Cotton Candy Lemonade - 200 calories</option>
+    <option value="200">Blue Raspberry Lemonade - 200 calories</option>
+    <option value="95">Apple - 95 calories</option>
+    <option value="105">Banana - 105 calories</option>
+    <option value="60">Orange - 60 calories</option>
+</select>
+
+<h3>Subway</h3>
+<select id="subwayItems" onchange="deductCalories()">
+    <option value="">Select an item</option>
+    <option value="410">6 Inch BLT - 410 calories</option>
+    <option value="230">6 Inch Veggie Delite - 230 calories</option>
+    <option value="350">6 Inch Rotisserie Chicken - 350 calories</option>
+    <option value="310">6 Inch Subway Club - 310 calories</option>
+    <option value="330">6 Inch Roast Beef - 330 calories</option>
+    <option value="320">6 Inch Turkey Italiano - 320 calories</option>
+    <option value="450">6 Inch Pizza Sub - 450 calories</option>
+    <option value="820">12 Inch BLT - 820 calories</option>
+    <option value="260">12 Inch Veggie Delite - 260 calories</option>
+    <option value="700">12 Inch Rotisserie Chicken - 700 calories</option>
+    <option value="620">12 Inch Subway Club - 620 calories</option>
+    <option value="660">12 Inch Roast Beef - 660 calories</option>
+    <option value="640">12 Inch Turkey Italiano - 640 calories</option>
+    <option value="900">12 Inch Pizza Sub - 900 calories</option>
+    <option value="480">6 Inch Tuna - 480 calories</option>
+    <option value="480">6 Inch Meatball Marinara - 480 calories</option>
+    <option value="480">6 Inch Chicken Bacon Ranch Melt - 480 calories</option>
+    <option value="960">12 Inch Tuna - 960 calories</option>
+    <option value="960">12 Inch Meatball Marinara - 960 calories</option>
+    <option value="960">12 Inch Chicken Bacon Ranch Melt - 960 calories</option>
+    <option value="800">Cheese Pizza - 800 calories</option>
+    <option value="900">Pepperoni Pizza - 900 calories</option>
+    <option value="200">Chocolate Chip Cookie - 200 calories</option>
+    <option value="200">Oatmeal Raisin Cookie - 200 calories</option>
+    <option value="200">Macadamia Nut Cookie - 200 calories</option>
+</select>
+
+
+
+<h3>Corner 17</h3>
+<select id="corner17Items" onchange="deductCalories()">
+    <option value="">Select an item</option>
+    <option value="1000">Kung Pau Chicken - 1000 calories</option>
+    <option value="1200">General Tso Chicken - 1200 calories</option>
+    <option value="900">Black Pepper Chicken - 900 calories</option>
+    <option value="1100">Chicken Low Mein - 1100 calories</option>
+    <option value="800">Pork Dumplings - 800 calories</option>
+    <option value="650">Fried Rice - 650 calories</option>
+    <option value="600">Potstickers - 600 calories</option>
+    <option value="450">Milk Boba Tea - 450 calories</option>
+    <option value="350">Fresh Fruit Tea - 350 calories</option>
+    <option value="400">Slushes - 400 calories</option>
+    <option value="300">Cheese Tea - 300 calories</option>
+    <option value="400">Flavored Tea - 400 calories</option>
+    <option value="450">Fresh Fruit Tea - 450 calories</option>
+    <option value="500">Cheesecake - 500 calories</option>
+    <option value="320">Cinnamon Scone - 320 calories</option>
+    <option value="220">Chocolate Chip Cookie - 220 calories</option>
+    <option value="250">Blueberry Scone - 250 calories</option>
+    <option value="200">Oatmeal Cranberry Cookie - 200 calories</option>
+</select>
+
+
+<h3>BD/Village Grill</h3>
+<select id="bdVillageGrillItems" onchange="deductCalories()">
+    <option value="">Select an item</option>
+    <option value="1200">BYO Bistro Burger - 1200 calories</option>
+    <option value="1100">BYO Grilled Chicken Sandwich - 1100 calories</option>
+    <option value="800">Impossible Burger - 800 calories</option>
+    <option value="1100">Philly Cheesesteak - 1100 calories</option>
+    <option value="800">Black Bean Burger - 800 calories</option>
+    <option value="600">Grilled Cheese - 600 calories</option>
+    <option value="450">Fries Egg Sandwich - 450 calories</option>
+    <option value="750">Turkey Burger - 750 calories</option>
+    <option value="1200">Half and Half - 1200 calories</option>
+    <option value="700">Chicken Tenders - 700 calories</option>
+    <option value="650">All Beef Hot Dog - 650 calories</option>
+    <option value="500">Chicken Breast - 500 calories</option>
+    <option value="580">NY Strip - 580 calories</option>
+    <option value="800">Ribeye - 800 calories</option>
+    <option value="750">Pork Chop - 750 calories</option>
+    <option value="780">Pork Steak - 780 calories</option>
+    <option value="450">Salmon Filet - 450 calories</option>
+    <option value="870">Double Lamb Chop - 870 calories</option>
+    <option value="450">Bratwurst - 450 calories</option>
+    <option value="600">French Fries - 600 calories</option>
+    <option value="450">Tater Tots - 450 calories</option>
+    <option value="350">Sweet Potato Fries - 350 calories</option>
+    <option value="500">Mac and Cheese - 500 calories</option>
+    <option value="430">Sautéed Zucchini - 430 calories</option>
+</select>
+
+<h3>BD/Village Spice Market</h3>
+<select id="spiceMarketItems" onchange="deductCalories()">
+    <option value="">Select an item</option>
+    <option value="950">Spice Market Meal - 950 calories</option>
+    <option value="400">Turmeric Basmati Bilaf - 400 calories</option>
+    <option value="360">Curry Roasted Vegetables - 360 calories</option>
+    <option value="600">Vegetable Samosas - 600 calories</option>
+    <option value="400">Naan - 400 calories</option>
+</select>
+
+<h3>BD/Village Simple Servings</h3>
+<select id="bdVillageSimpleServingsItems" onchange="deductCalories()">
+    <option value="">Select an item</option>
+    <option value="550">Cajun Turkey Breast - 550 calories</option>
+    <option value="220">Quinoa with Squash, Tomatoes and Basil - 220 calories</option>
+    <option value="200">Corn - 200 calories</option>
+    <option value="200">Brown Rice - 200 calories</option>
+    <option value="145">Zucchini with Stewed Tomatoes - 145 calories</option>
+</select>
+</div> -->
+
+
+
+<script>
+    function displayUser() {
+        var currentUser = localStorage.getItem("currentUser");
+        if (currentUser) {
+            document.getElementById("user").innerText = currentUser;
+            loadCalorieGoal(); // Load calorie goal when user is displayed
+        } else {
+            alert("No user logged in!");
+            window.location.href = "login.html"; // Redirect to login page
+        }
+    }
+
+    function saveCalorieGoal() {
+        var calorieGoal = document.getElementById("calorieGoal").value;
+        var currentUser = localStorage.getItem("currentUser");
+        var users = JSON.parse(localStorage.getItem("users") || "[]");
+    
+        // Find the current user and update their calorie goal and date
+        users.forEach(user => {
+            if (user.username === currentUser) {
+                user.calorieGoal = calorieGoal; // Update calorie goal for this user
+                user.lastInputDate = new Date().toISOString().split('T')[0]; // Save current date as last input date
+            }
+        });
+    
+        localStorage.setItem("users", JSON.stringify(users)); // Save updated users array
+        document.getElementById("goalDisplay").innerText = calorieGoal; // Update displayed goal
+        alert("Calorie goal saved!");
+    
+        // Hide the input field and button after saving
+        document.getElementById("calorieGoal").style.display = "none";
+        document.getElementById("saveGoalButton").style.display = "none";
+    
+        // Start the countdown timer for the next reset
+        startCountdownTimer();
+    }
+    
+    function loadCalorieGoal() {
+        var currentUser = localStorage.getItem("currentUser");
+        var users = JSON.parse(localStorage.getItem("users") || "[]");
+        var user = users.find(user => user.username === currentUser);
+    
+        if (user) {
+            document.getElementById("goalDisplay").innerText = user.calorieGoal !== null ? user.calorieGoal : "Not set";
+            document.getElementById("calorieGoal").value = user.calorieGoal !== null ? user.calorieGoal : ""; // Pre-fill the input with the current goal
+    
+            // Check if the user can input a new calorie goal
+            var today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+            if (user.calorieGoal !== null && user.lastInputDate === today) {
+                document.getElementById("saveGoalButton").disabled = true; // Disable the button
+                document.getElementById("calorieGoalSet").style.display = 'none';
+                // Start the countdown timer for the next reset
+                startCountdownTimer();
+            } else {
+                document.getElementById("saveGoalButton").disabled = false; // Enable the button if no goal is set yet
+            }
+        } else {
+            document.getElementById("goalDisplay").innerText = "Not set";
+        }
+    }
+
+    function logout() {
+        localStorage.removeItem("currentUser");
+        window.location.href = "login.html"; // Redirect to login page
+    }
+
+    function startCountdownTimer() {
+        // Set the target time to midnight Central Standard Time
+        var now = new Date();
+        var targetTime = new Date();
+        targetTime.setHours(0, 0, 0, 0); // Set to midnight
+        targetTime.setDate(targetTime.getDate() + 1); // Move to the next day
+    
+        // Calculate the time difference
+        var timeDifference = targetTime - now;
+    
+        // Update the timer every second
+        var timerElement = document.getElementById("timer");
+        var inputField = document.getElementById("calorieGoal");
+        var saveButton = document.getElementById("saveGoalButton");
+        
+        var countdown = setInterval(function() {
+            timeDifference -= 1000; // Decrease by one second
+    
+            // Calculate hours, minutes, and seconds
+            var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+    
+            // Display the timer
+            timerElement.innerText = "New Goal In: " + hours + "h " + minutes + "m " + seconds + "s";
+    
+            // Reset the timer when it reaches zero
+            if (timeDifference < 0) {
+                clearInterval(countdown); // Stop the timer
+                timerElement.innerText = "You can now set a new calorie goal!"; // Notify user
+    
+                // Show the input field and button again
+                inputField.style.display = "block";
+                saveButton.style.display = "block";
+            }
+        }, 1000);
+    }
+
+
+    const radioButtons = document.querySelectorAll('input[name="position"]');
+
+// Function to update the carousel based on selected radio button
+function updateCarousel(position) {
+    const carousel = document.querySelector('main#carousel');
+    // Set the CSS variable for carousel positioning
+    carousel.style.setProperty('--position', position);
+}
+
+// Add an event listener to each radio button
+radioButtons.forEach((radio) => {
+    radio.addEventListener('change', (event) => {
+        // Get the selected radio button value
+        const position = event.target.value;
+
+        // Update the carousel position
+        updateCarousel(position);
+    });
+});
+
+    function deductCalories() {
+        var selectedCaloriesBBQ = document.getElementById("bbqItems").value;
+        var selectedCaloriesCollins = document.getElementById("collinsFarmsItems").value;
+        var selectedCaloriesCoffeestamp = document.getElementById("coffeestampItems").value;
+        
+        var selectedCaloriesSubway = document.getElementById("subwayItems").value;
+        var selectedCaloriesStanleys = document.getElementById("stanleysItems").value;
+        var selectedCaloriesCorner17 = document.getElementById("corner17Items").value;
+        var selectedCaloriesBDVillageGrill = document.getElementById("bdVillageGrillItems").value; // Get value from BD/Village Grill dropdown
+    
+        // Select from any dropdown
+        var selectedCalories = selectedCaloriesBBQ || selectedCaloriesCollins || selectedCaloriesCoffeestamp || selectedCaloriesSubway || selectedCaloriesStanleys || selectedCaloriesCorner17 || selectedCaloriesBDVillageGrill;
+        
+        if (selectedCalories === "") {
+            return; // Do nothing if no item is selected
+        }
+    
+        var currentGoal = document.getElementById("goalDisplay").innerText;
+    
+        // Convert current goal to a number
+        var newGoal = Number(currentGoal) - Number(selectedCalories);
+    
+        // Update the calorie goal display
+        if (newGoal >= 0) {
+            document.getElementById("goalDisplay").innerText = newGoal;
+
+
+            var currentUser = localStorage.getItem("currentUser");
+            var users = JSON.parse(localStorage.getItem("users") || "[]");
+            var user = users.find(user => user.username === currentUser);
+
+            if (user) {
+                user.calorieGoal = newGoal; // Update the calorie goal for this user
+                localStorage.setItem("users", JSON.stringify(users)); // Save updated users array
+            }
+        } else {
+            alert("Not enough calories in your goal to deduct this item.");
+        }
+    
+        // Clear selections from all dropdowns
+        document.getElementById("bbqItems").selectedIndex = 0;
+        document.getElementById("collinsFarmsItems").selectedIndex = 0;
+        document.getElementById("coffeestampItems").selectedIndex = 0; // Clear Coffeestamp dropdown
+        document.getElementById("subwayItems").selectedIndex = 0; // Clear Subway dropdown
+        document.getElementById("stanleysItems").selectedIndex = 0; // Clear Stanley's dropdown
+        document.getElementById("corner17Items").selectedIndex = 0; // Clear Corner 17 dropdown
+        document.getElementById("bdVillageGrillItems").selectedIndex = 0; // Clear BD/Village Grill dropdown
+
+    }
+    
+
+    displayUser(); // Call this function on page load
+</script>
+
+</body>
+</html>
